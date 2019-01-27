@@ -1,7 +1,6 @@
 <?hh // strict
 
 use namespace Nuxed\Kernel;
-use namespace Nuxed\Http\Server\Middleware;
 
 require __DIR__.'/../vendor/hh_autoload.hh';
 
