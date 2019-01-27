@@ -12,9 +12,11 @@
             "email": "azjezz@protonmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "": "src/"
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "platform": {
+            "hhvm": "3.30.2"
         }
     }
 }
