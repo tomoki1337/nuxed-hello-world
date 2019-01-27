@@ -1,0 +1,20 @@
+{
+    "name": "azjezz/nuxed-hello-world",
+    "description": "Example Application using Nuxed Framework",
+    "type": "project",
+    "require": {
+        "nuxed/framework": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "azjezz",
+            "email": "azjezz@protonmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
