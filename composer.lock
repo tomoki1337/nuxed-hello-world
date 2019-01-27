@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36ba72cc36c77ec1f643b37ec121b917",
+    "content-hash": "d347dbdfe8f1132ab124b76ec0af5add",
     "packages": [
         {
             "name": "facebook/fbmarkdown",
@@ -167,16 +167,16 @@
         },
         {
             "name": "hhvm/hhvm-autoload",
-            "version": "v1.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hhvm-autoload.git",
-                "reference": "2e8b1ec08f00101d63f5ec797d9db47faa99a6dc"
+                "reference": "5d3fdbf7c203b05e13edab7b4f9981b19877f368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/2e8b1ec08f00101d63f5ec797d9db47faa99a6dc",
-                "reference": "2e8b1ec08f00101d63f5ec797d9db47faa99a6dc",
+                "url": "https://api.github.com/repos/hhvm/hhvm-autoload/zipball/5d3fdbf7c203b05e13edab7b4f9981b19877f368",
+                "reference": "5d3fdbf7c203b05e13edab7b4f9981b19877f368",
                 "shasum": ""
             },
             "require": {
@@ -214,7 +214,7 @@
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-12-14T20:41:25+00:00"
+            "time": "2019-01-22T22:32:09+00:00"
         },
         {
             "name": "hhvm/hsl",
@@ -329,24 +329,41 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuxed/framework.git",
-                "reference": "4f693abfb1d55aeef83c5ca2423262d5687d6d04"
+                "reference": "5c2cef1147bda091cc1807ac6aedb0c74e95ef29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuxed/framework/zipball/4f693abfb1d55aeef83c5ca2423262d5687d6d04",
-                "reference": "4f693abfb1d55aeef83c5ca2423262d5687d6d04",
+                "url": "https://api.github.com/repos/nuxed/framework/zipball/5c2cef1147bda091cc1807ac6aedb0c74e95ef29",
+                "reference": "5c2cef1147bda091cc1807ac6aedb0c74e95ef29",
                 "shasum": ""
             },
             "require": {
                 "facebook/fbmarkdown": "^1.4",
                 "facebook/hack-router": "^0.17",
                 "facebook/xhp-lib": "^2.8",
-                "hhvm": "^3.29",
-                "hhvm/hsl": "^3.29.0",
-                "hhvm/hsl-experimental": "^3.29"
+                "hhvm": "^3.30.0",
+                "hhvm/hhvm-autoload": "dev-master",
+                "hhvm/hsl": "^3.30.0",
+                "hhvm/hsl-experimental": "^3.30.0"
+            },
+            "replace": {
+                "nuxed/asset": "self.version",
+                "nuxed/cache": "self.version",
+                "nuxed/container": "self.version",
+                "nuxed/contract": "self.version",
+                "nuxed/crypto": "self.version",
+                "nuxed/event": "self.version",
+                "nuxed/http": "self.version",
+                "nuxed/io": "self.version",
+                "nuxed/kernel": "self.version",
+                "nuxed/lib": "self.version",
+                "nuxed/log": "self.version",
+                "nuxed/markdown": "self.version",
+                "nuxed/period": "self.version",
+                "nuxed/stopwatch": "self.version"
             },
             "require-dev": {
-                "hhvm/hhast": "^3.29"
+                "hhvm/hhast": "^3.30"
             },
             "type": "framework",
             "autoload": {
@@ -363,20 +380,33 @@
                     "name": "azjezz",
                     "email": "azjezz@protonmail.com",
                     "homepage": "https://azjezz.github.io"
+                },
+                {
+                    "name": "Nuxed Community",
+                    "homepage": "https://github.com/nuxed/framework/graphs/contributors"
                 }
             ],
             "description": "Hack framework for building web applications with expressive, elegant syntax.",
-            "time": "2019-01-26T00:50:01+00:00"
+            "keywords": [
+                "framework",
+                "hack",
+                "hhvm",
+                "nuxed"
+            ],
+            "time": "2019-01-27T06:23:08+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "nuxed/framework": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "hhvm": "3.30.2"
+    }
 }
