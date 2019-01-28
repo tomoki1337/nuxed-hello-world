@@ -14,7 +14,7 @@ $ # visit https://localhost:8080
 ## Docker
 ### build the image
 ```console
-docker build -t nuxed/hello-world:latest .
+docker build -t nuxed-hello-world:latest .
 ```
 ### running it
 ```console
