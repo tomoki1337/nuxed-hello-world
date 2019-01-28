@@ -7,14 +7,25 @@ require __DIR__.'/../vendor/hh_autoload.hh';
 <<__EntryPoint>>
 async function main(): Awaitable<noreturn> {
   /**
-   * Create an Kernel instance.
+   * Create the container and kernel instances.
+   *
+   * you can use the container instance to register
+   * services.
    */
-  $kernel = new Kernel\Kernel(dict[/* default production config */]);
-
+  list($container, $kernel) = Kernel\Kernel::create();
+  
+  
   /**
-   * add route
+   * add routes
    */
   $kernel->get('/', HomeHandler::class, 'home');
+  $kernel->get(
+    '/json',
+    (Request $request): Response ==>
+      new Message\Response\JsonResponse(dict[
+        'message' => 'Hello, World'
+      ])
+  );
 
   /**
    * run the kernel application.
