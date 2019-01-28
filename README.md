@@ -2,7 +2,7 @@
 
 ---
 
-```consoole
+```console
 $ git clone https://github.com/azjezz/nuxed-hello-world
 $ cd nuxed-hello-world
 $ hhvm $(which composer) install
