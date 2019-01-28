@@ -21,7 +21,6 @@ RUN \
   && git clone https://github.com/azjezz/nuxed-hello-world
 RUN \
   cd /home/docker/www/nuxed-hello-world \
-  && composer dump-autoload --optimize \
   && composer update \
   && composer install
 RUN \
