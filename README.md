@@ -18,4 +18,5 @@ docker build -t nuxed/hello-world:latest .
 ### running it
 ```console
 docker-compose up -d
-```console
+```
+by default it requires traefik, comment out that part and uncomment ports if you don't wanna use it, but it's highly recommended 
