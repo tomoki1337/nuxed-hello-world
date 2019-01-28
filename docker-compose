@@ -1,0 +1,21 @@
+version: '3'
+services:
+  site:
+    image: hhvm/hhvm:composer
+    labels:
+      - traefik.port=8080
+      - traefik.docker.network=webgateway
+      - traefik.frontend.priority=50
+      - traefik.frontend.rule=Host:domain
+    volumes:
+      - nuxed-hello-world:/var/www/nuxed-hello-world
+    networks:
+      - webgateway 
+volumes:
+  nuxed-hello-world:
+    external: true
+
+networks:
+    webgateway:
+      external: true
+  
