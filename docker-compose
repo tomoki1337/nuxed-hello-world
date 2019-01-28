@@ -1,7 +1,7 @@
 version: '3'
 services:
   site:
-    image: nuxed/hello-world:latest
+    image: nuxed-hello-world:latest
 #    ports: 8080:8080
     labels:
       - traefik.port=8080
