@@ -21,8 +21,8 @@ RUN \
   && git clone https://github.com/azjezz/nuxed-hello-world
 RUN \
   cd /home/docker/www/nuxed-hello-world \
-  && composer update \
-  && composer install
+  && composer install \
+  && hhvm vendor/bin/hh-autoload
 RUN \
   cd /home/docker/www/nuxed-hello-world/public \
   && hhvm -m daemon -c ../server.ini
