@@ -1,6 +1,9 @@
 <?hh // strict
 
 use namespace Nuxed\Kernel;
+use namespace Nuxed\Http\Message;
+use type Nuxed\Contract\Http\Message\ServerRequestInterface as Request;
+use type Nuxed\Contract\Http\Message\ResponseInterface as Response;
 
 require __DIR__.'/../vendor/hh_autoload.hh';
 
