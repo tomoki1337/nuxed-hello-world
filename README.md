@@ -1,7 +1,7 @@
 # Nuxed Hello, World App
 ---
 status: not working, image building stuck at composer install 
----
+
 
 ```console
 $ git clone https://github.com/azjezz/nuxed-hello-world
