@@ -1,22 +1,29 @@
-FROM ubuntu:16.04
+FROM hhvm/hhvm
 
-ARG HHVM_PACKAGE
-ARG HHVM_REPO_DISTRO=xenial
-ENV HHVM_DISABLE_NUMA true
+RUN apt-get update -qq && \
+        apt-get install -y -qq git curl php-cli php-mbstring git unzip && \
+        apt-get -y clean
 
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
+
+RUN composer
+
+ARG PUID=1000
+ARG PGID=1000
+RUN groupadd -g ${PGID} docker && \
+  useradd -u ${PUID} -g docker -m docker
+USER docker
+
+ENTRYPOINT [ "hhvm", "-d", "hhvm.http.slow_query_threshold=30000", "/usr/local/bin/composer" ]
 RUN \
-  apt-get update -y && apt-get install -y software-properties-common apt-transport-https \
-  && apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xB4112585D386EB94 \
-  && add-apt-repository "deb https://s3-us-west-2.amazonaws.com/hhvm-downloads/ubuntu ${HHVM_REPO_DISTRO} main" \
-  && apt-get update -y \
-  && apt-get install -y ${HHVM_PACKAGE} git wget curl \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
-  && sed -i 's,s3-us-west-2.amazonaws.com/hhvm-downloads/,dl.hhvm.com/,' /etc/apt/sources.list \
-  && cd /var/www/ \
-  && git clone https://github.com/azjezz/nuxed-hello-world \
-  && cd nuxed-hello-world \
-  && wget https://github.com/composer/composer/releases/download/1.8.0/composer.phar \
-  && hhvm composer.phar install \
-  && cd public \
-  && hhvm -m daemon -c ../server.ini  
+  mkdir /home/docker/www \
+  && cd /home/docker/www \
+  && git clone https://github.com/azjezz/nuxed-hello-world
+RUN \
+  cd /home/docker/www/nuxed-hello-world \
+  && composer update \
+  && composer install
+RUN \
+  cd /home/docker/www/nuxed-hello-world/public \
+  && hhvm -m daemon -c ../server.ini
+
