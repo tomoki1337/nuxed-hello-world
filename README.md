@@ -10,3 +10,12 @@ $ cd public
 $ hhvm -m daemon -c ../server.ini
 $ # visit https://localhost:8080
 ```
+##Docker
+### build the image
+```console
+docker build -t nuxed/hello-world:latest .
+```
+### running it
+```console
+docker-compose up -d
+```console
